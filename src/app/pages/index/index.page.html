@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">
+      <h4>Bienvenido a tu </h4>
+      <h3>ORGANIZADOR</h3>
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+<br/>
+<br/>
+<ion-content >
+
+  <ion-title class="ion-text-center">Selecciona lo que deseas hacer</ion-title>  
+  <br>
+  <div class="margen">
+  <ion-button color="success" expand="block" shape="round" (click)="iniciarSession()">
+  <p class="cblanco">Iniciar Sessión</p>
+    <ion-icon class="cblanco" name="person-circle"></ion-icon>
+  </ion-button>
+</div>
+<div class="margen">
+  <ion-button color="tertiary" expand="block" shape ="round" (click)="registrO()">
+    <p class="cblanco">Registrar</p>
+    <ion-icon  class="cblanco" name="person-add-sharp"></ion-icon>
+  </ion-button>
+</div>
+ 
+
+</ion-content>
