@@ -1,5 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title class="ion-text-center">Registro de Actividad</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -27,19 +30,21 @@
       <ion-input [(ngModel)]="detalleAct" fill="solid" label="Detalle:"></ion-input>
     </ion-item>
   </div>
-  
+
   <div class="margen">
     <ion-item>
       <ion-label>Fecha de Actividad</ion-label>
-      <ion-datetime-button [(ngModel)]="fechaAct" datetime="datetime"></ion-datetime-button>
+      <ion-datetime-button datetime="datetime" ></ion-datetime-button>
 
       <ion-modal [keepContentsMounted]="true">
         <ng-template>
-          <ion-datetime id="datetime"></ion-datetime>
+          <ion-datetime id="datetime" [(ngModel)]="fechaAct" presentation="date-time"></ion-datetime>
         </ng-template>
       </ion-modal>
+
     </ion-item>
   </div>
+
   <div class="margen">
     <ion-item>
       <ion-checkbox [(ngModel)]="grupal" justify="space-between">Es una actividad grupal?</ion-checkbox>

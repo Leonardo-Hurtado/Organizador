@@ -11,7 +11,7 @@ export class AgregarPage  {
   nombreAct: string = '';
   tipoAct: string = '';
   detalleAct: string = '';
-  fechaAct: Date | null = null;
+  fechaAct: string | null = null;
   grupal: string = '';
 
   constructor(private router: Router) { }

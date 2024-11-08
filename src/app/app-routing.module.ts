@@ -20,10 +20,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/actividad/actividad.module').then( m => m.ActividadPageModule)
   },
   {
-    path: 'agregar',
-    loadChildren: () => import('./pages/agregar/agregar.module').then( m => m.AgregarPageModule)
-  },
-  {
     path: 'index',
     loadChildren: () => import('./pages/index/index.module').then( m => m.IndexPageModule)
   },
@@ -34,6 +30,10 @@ const routes: Routes = [
   {
     path: 'usuario',
     loadChildren: () => import('./pages/usuario/usuario.module').then( m => m.UsuarioPageModule)
+  },
+  {
+    path: 'agregar',
+    loadChildren: () => import('./pages/agregar/agregar.module').then( m => m.AgregarPageModule)
   }
 ];
 
