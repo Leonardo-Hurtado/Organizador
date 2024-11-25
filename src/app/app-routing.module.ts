@@ -9,35 +9,35 @@ const routes: Routes = [
   },
   {
     path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  },
-  {
-    path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
-  },
-  {
-    path: 'actividad',
-    loadChildren: () => import('./pages/actividad/actividad.module').then( m => m.ActividadPageModule)
+    loadChildren: () => import('./folder/folder.module').then(m => m.FolderPageModule)
   },
   {
     path: 'index',
-    loadChildren: () => import('./pages/index/index.module').then( m => m.IndexPageModule)
+    loadChildren: () => import('./pages/index/index.module').then(m => m.IndexPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: 'registrar',
-    loadChildren: () => import('./pages/registrar/registrar.module').then( m => m.RegistrarPageModule)
+    loadChildren: () => import('./pages/registrar/registrar.module').then(m => m.RegistrarPageModule)
   },
   {
     path: 'usuario',
-    loadChildren: () => import('./pages/usuario/usuario.module').then( m => m.UsuarioPageModule)
+    loadChildren: () => import('./pages/usuario/usuario.module').then(m => m.UsuarioPageModule)
+  },
+  {
+    path: 'actividad',
+    loadChildren: () => import('./pages/actividad/actividad.module').then(m => m.ActividadPageModule)
   },
   {
     path: 'agregar',
     loadChildren: () => import('./pages/agregar/agregar.module').then( m => m.AgregarPageModule)
   },
   {
-    path: 'page-not-found',
-    loadChildren: () => import('./pages/page-not-found/page-not-found.module').then( m => m.PageNotFoundPageModule)
+    path: '**',
+    loadChildren: () => import('./pages/page-not-found/page-not-found.module').then(m => m.PageNotFoundPageModule)
   }
 ];
 
@@ -47,4 +47,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
