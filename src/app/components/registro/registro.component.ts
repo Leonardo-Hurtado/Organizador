@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { DatabaseService } from 'src/app/services/database.service';
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.scss'],
 })
-export class RegistroComponent{
+export class RegistroComponent implements OnInit {
   username: string = '';
   password: string = '';
   email: string = '';
@@ -14,10 +15,14 @@ export class RegistroComponent{
   apellido: string = '';
   direccion: string = "";
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private dbService: DatabaseService) { }
+
+  async ngOnInit() {
+    await this.dbService.initDB();
+  }
 
   login() {
-    
+
     sessionStorage.setItem('username', this.username);
     sessionStorage.setItem('password', this.password);
     sessionStorage.setItem('email', this.email);
@@ -39,5 +44,18 @@ export class RegistroComponent{
 
   back() {
     this.router.navigate(['/index']);
+  }
+
+  async addUser(event: Event) {
+    event.preventDefault();
+
+    await this.dbService.AddUser(this.username, this.password, this.email, this.nombre, this.apellido, this.direccion);
+
+    this.username = '';
+    this.password = '';
+    this.email = '';
+    this.nombre = '';
+    this.apellido = '';
+    this.direccion = '';
   }
 }

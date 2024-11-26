@@ -42,16 +42,34 @@ export class DatabaseService {
      `;
 
 
-     await this.db.execute(createTableQuery);
-     console.log("base de datos inicializada");
+      await this.db.execute(createTableQuery);
+      console.log("base de datos inicializada");
 
 
     } catch (error) {
       console.error("ERROR :", error);
 
     }
+  };
 
+  async AddUser(username: string, password: string, nombre: string, apellido: string, email: string, direccion: string) {
+    try {
+      if (!username || !password || !email || !nombre || !apellido || !direccion) {
+        alert('Por Faor, Ingrese la informacion necesaria');
+        return
+      }
+      const inserQuery = `
+      INSERT INTO ${this.db_table} (username, password, email, nombre, apellido, direccion) VALUES(?,?,?,?,?,?);
+      `;
 
+      const values = [username, password, email, nombre, apellido, direccion];
+
+      await this.db.run(inserQuery, values);
+      console.log('usuarioa sido registrado')
+
+    } catch (error) {
+      console.error('error al registrar usuario', error);
+
+    }
   }
-
 }
