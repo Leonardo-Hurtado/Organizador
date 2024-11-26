@@ -23,5 +23,13 @@ export class AppComponent {
 
   constructor() {}
   
+  ngOnInit() {
+    // Recuperar datos de sessionStorage
+    this.username = sessionStorage.getItem('username') || '';
+    this.email = sessionStorage.getItem('email') || '';
+    this.nombre = sessionStorage.getItem('nombre') || '';
+    this.apellido = sessionStorage.getItem('apellido') || '';
+    this.direccion = sessionStorage.getItem('direccion') || '';
+  }
 }
 

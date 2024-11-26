@@ -1,0 +1,21 @@
+.margen {
+    padding: 5px; 
+  }
+  
+  .buton {
+    margin-top: 1px;
+    width: 100%;
+    padding: 25px; 
+  }
+
+  .boton-limpiar,
+  .boton-registrar {
+    width: 90%; /* Ajusta el ancho para que los botones sean más largos dentro de la columna */
+    max-width: 200px; /* Limita el ancho máximo en pantallas grandes */
+    margin: 0 auto;
+  }
+  
+  .button-col {
+    display: flex;
+    justify-content: center;
+  }

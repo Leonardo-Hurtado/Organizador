@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AgregarPageRoutingModule } from './agregar-routing.module';
 
 import { AgregarPage } from './agregar.page';
+import { AgregarComponent } from 'src/app/components/agregar/agregar.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { AgregarPage } from './agregar.page';
     IonicModule,
     AgregarPageRoutingModule
   ],
-  declarations: [AgregarPage]
+  declarations: [AgregarPage, AgregarComponent]
 })
 export class AgregarPageModule {}

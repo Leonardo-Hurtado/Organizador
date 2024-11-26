@@ -15,6 +15,9 @@ export class LoginPage{
 
 
   login() {
+    sessionStorage.setItem('username', this.username);
+    sessionStorage.setItem('password', this.password);
+
     const navigationExtras: NavigationExtras = {
       state: {
         username: this.username,
@@ -24,8 +27,7 @@ export class LoginPage{
     this.router.navigate(['/usuario'], navigationExtras);
   }
 
-  back(){
-    this.router.navigate(['/index'])
+  back() {
+    this.router.navigate(['/index']);
   }
-  
 }

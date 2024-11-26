@@ -20,7 +20,14 @@ export class UsuarioPage{
     addIcons({ create });
 
   }
-
+  ngOnInit() {
+    this.username = sessionStorage.getItem('username') || '';
+    this.password = sessionStorage.getItem('password') || '';
+    this.email = sessionStorage.getItem('email') || '';
+    this.nombre = sessionStorage.getItem('nombre') || '';
+    this.apellido = sessionStorage.getItem('apellido') || '';
+    this.direccion = sessionStorage.getItem('direccion') || '';
+  }
 
 
 }

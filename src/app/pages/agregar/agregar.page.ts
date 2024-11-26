@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-agregar',
@@ -8,24 +8,8 @@ import { Router } from '@angular/router';
 })
 export class AgregarPage  {
 
-  nombreAct: string = '';
-  tipoAct: string = '';
-  detalleAct: string = '';
-  fechaAct: string | null = null;
-  grupal: string = '';
+  constructor() { }
 
-  constructor(private router: Router) { }
-
-  limpiarCampos() {
-    this.nombreAct = "";
-    this.tipoAct = "";
-    this.detalleAct = "";
-    this.fechaAct = null;
-    this.grupal = "";
-  }
-
-  siguiente() {
-    this.router.navigate(['/actividad'])
-  }
+  ngOnInit() {}
 
 }

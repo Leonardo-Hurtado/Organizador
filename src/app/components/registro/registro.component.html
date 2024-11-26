@@ -1,0 +1,57 @@
+<div class="margen">
+  <ion-item>
+    <ion-input [(ngModel)]="nombre" fill="solid" label="Nombre" placeholder="Ingresa tu Nombre"></ion-input>
+  </ion-item>
+</div>
+<div class="margen">
+  <ion-item>
+    <ion-input [(ngModel)]="apellido" fill="solid" label="Apellido" placeholder="Ingresa tu Apellido"></ion-input>
+  </ion-item>
+</div>
+<div class="margen">
+  <ion-item>
+    <ion-input [(ngModel)]="direccion" fill="solid" label="Direccion" placeholder="Ingresa tu Direccion"></ion-input>
+  </ion-item>
+</div>
+<div class="margen">
+  <ion-item>
+    <ion-input [(ngModel)]="email" fill="solid" label="Email" placeholder="Ingresa tu Email"></ion-input>
+  </ion-item>
+</div>
+<div class="margen">
+  <ion-item>
+    <ion-input [(ngModel)]="username" fill="solid" label="Usuario" [counter]="true" maxlength="8"
+      placeholder="Ingresa tu Nombre de usuario" helperText="Obligatorio">
+    </ion-input>
+  </ion-item>
+</div>
+<div class="margen">
+  <ion-item>
+    <ion-input [(ngModel)]="password" fill="solid" label="Contraseña" type="password" [counter]="true" maxlength="4"
+      placeholder="Contraseña de 4 numeros" helperText="Obligatorio">
+      <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+    </ion-input>
+  </ion-item>
+</div>
+
+<br>
+
+<div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" class="button-col ">
+      <ion-button class="boton-registrar" color="success" fill="outline" (click)="login()" shape="round">Registrar
+        <ion-icon name="save"></ion-icon>
+      </ion-button>
+    </ion-col>
+    <ion-col size="6" class="button-col">
+      <ion-button class="boton-limpiar" color="danger" fill="outline" (click)="limpiarCampos()" shape="round">limpiar
+        <ion-icon name="trash-bin"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<ion-button class="buton margen" color="warning" fill="outline" (click)="back()" shape="round" >Volver
+  <ion-icon name="arrow-undo-circle-outline"></ion-icon>
+</ion-button>
+</div>
