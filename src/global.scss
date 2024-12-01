@@ -35,3 +35,22 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+body {
+    background: url('/assets/casa.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  ion-content {
+    --background: none;
+  }
+
+  ion-header {
+    --background: rgba(255, 255, 255, 0.5); /* Cambia el color y la opacidad según tus necesidades */
+    --ion-color-base: rgba(255, 255, 255, 0.5) !important; /* Asegúrate de que el color base sea también transparente */
+  }
+  
+  ion-toolbar {
+    --background: rgba(255, 255, 255, 0.5); /* Cambia el color y la opacidad según tus necesidades */
+    --ion-color-base: rgba(255, 255, 255, 0.5) !important; /* Asegúrate de que el color base sea también transparente */
+  }

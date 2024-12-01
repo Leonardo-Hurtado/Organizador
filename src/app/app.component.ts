@@ -14,18 +14,18 @@ export class AppComponent {
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
-  username: string = history.state.username;
-  password: string = history.state.password;
-  nombre: string = history.state.nombre;
-  apellido: string = history.state.apellido;
-  email: string = history.state.email;
-  direccion: string = history.state.direccion;
+  username: string = '';
+  password: string = '';
+  nombre: string = '';
+  apellido: string = '';
+  email: string = '';
+  direccion: string ='';
 
   constructor() {}
   
   ngOnInit() {
-    // Recuperar datos de sessionStorage
     this.username = sessionStorage.getItem('username') || '';
+    this.password = sessionStorage.getItem('password') || '';
     this.email = sessionStorage.getItem('email') || '';
     this.nombre = sessionStorage.getItem('nombre') || '';
     this.apellido = sessionStorage.getItem('apellido') || '';

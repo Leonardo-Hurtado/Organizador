@@ -16,6 +16,8 @@ export class UsuarioPage{
   email: string = history.state.email;
   direccion: string = history.state.direccion;
 
+  mostrarTexto: boolean = false; // Estado inicial: texto oculto
+
   constructor() { 
     addIcons({ create });
 
@@ -27,6 +29,11 @@ export class UsuarioPage{
     this.nombre = sessionStorage.getItem('nombre') || '';
     this.apellido = sessionStorage.getItem('apellido') || '';
     this.direccion = sessionStorage.getItem('direccion') || '';
+  }
+
+
+  toggleMostrarTexto() {
+    this.mostrarTexto = !this.mostrarTexto;
   }
 
 

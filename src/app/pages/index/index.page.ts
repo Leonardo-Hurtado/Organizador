@@ -21,7 +21,7 @@ export class IndexPage implements OnInit {
   }
 
   registrO(){
-    this.router.navigate(['/registrar']);
+    this.router.navigate(['registrar']);
 
   }
 
