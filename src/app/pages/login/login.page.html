@@ -10,32 +10,34 @@
   <br>
 
   <div>
-    <h4 class="ion-text-center">Ingresa tus Credenciales</h4>
+    <ion-title>
+      <h4 class="ion-text-center">Ingresa tus Credenciales</h4>
+    </ion-title>
   </div>
   <br>
-    <div class="margen">
-      <ion-item>
-        <ion-input [(ngModel)]="username" fill="solid" label="Usuario" [counter]="true" maxlength="8"
-          placeholder="Ingresa Nombre de usuario" helperText="Obligatorio">
-        </ion-input>
-      </ion-item>
-    </div>
-    <div class="margen">
-      <ion-item>
-        <ion-input [(ngModel)]="password" fill="solid" label="Contraseña" type="password" [counter]="true" maxlength="4"
-          placeholder="Ingresa Contraseña" helperText="Obligatorio">
-          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
-        </ion-input>
-      </ion-item>
-    </div>
-    <br>
-    <br>
+  <div class="margen">
+    <ion-item>
+      <ion-input [(ngModel)]="username" fill="solid" label="Usuario" [counter]="true" maxlength="8"
+        placeholder="Ingresa Nombre de usuario" helperText="Obligatorio">
+      </ion-input>
+    </ion-item>
+  </div>
+  <div class="margen">
+    <ion-item>
+      <ion-input [(ngModel)]="password" fill="solid" label="Contraseña" type="password" [counter]="true" maxlength="4"
+        placeholder="Ingresa Contraseña" helperText="Obligatorio">
+        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+      </ion-input>
+    </ion-item>
+  </div>
+  <br>
+  <br>
   <div>
-    <ion-button color="success" fill="solid" (click)="login()" shape="round" >Ingresar
+    <ion-button color="success" fill="solid" (click)="login()" shape="round">Ingresar
       <ion-icon name="person-circle"></ion-icon>
-    </ion-button> 
-    <ion-button color="warning" fill="solid" (click)="back()" shape="round" >Volver
+    </ion-button>
+    <ion-button color="warning" fill="solid" (click)="back()" shape="round">Volver
       <ion-icon name="arrow-undo-circle-outline"></ion-icon>
-    </ion-button> 
+    </ion-button>
   </div>
 </ion-content>

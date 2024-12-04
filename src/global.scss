@@ -46,11 +46,24 @@ body {
   }
 
   ion-header {
-    --background: rgba(255, 255, 255, 0.5); /* Cambia el color y la opacidad según tus necesidades */
-    --ion-color-base: rgba(255, 255, 255, 0.5) !important; /* Asegúrate de que el color base sea también transparente */
+    --background: rgba(134, 198, 247, 0.5); 
+    --ion-color-base: rgba(134, 198, 247, 0.5) !important; 
   }
   
   ion-toolbar {
-    --background: rgba(255, 255, 255, 0.5); /* Cambia el color y la opacidad según tus necesidades */
-    --ion-color-base: rgba(255, 255, 255, 0.5) !important; /* Asegúrate de que el color base sea también transparente */
+    --background: rgba(134, 198, 247, 0.5); 
+    --ion-color-base: rgba(134, 198, 247, 0.5) !important; 
+  }
+
+  ion-title {
+    color: rgb(5, 3, 70);
+    background-color: rgba(134, 198, 247, 0.2); /* Fondo blanco con 70% de opacidad */
+    border-radius: 15px; /* Esquinas redondeadas */
+    padding: 10px; /* Espaciado interno */
+    margin: 0 10px; /* Margen lateral para que no toque los bordes del toolbar */ 
+  }
+
+  ion-button {
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 1); /* Sombra */
+    border-radius: 18px; /* Esquinas redondeadas (opcional) */
   }
