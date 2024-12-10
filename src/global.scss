@@ -57,13 +57,25 @@ body {
 
   ion-title {
     color: rgb(5, 3, 70);
-    background-color: rgba(134, 198, 247, 0.2); /* Fondo blanco con 70% de opacidad */
-    border-radius: 15px; /* Esquinas redondeadas */
-    padding: 10px; /* Espaciado interno */
-    margin: 0 10px; /* Margen lateral para que no toque los bordes del toolbar */ 
+    background-color: rgba(134, 198, 247, 0.2); 
+    border-radius: 15px; 
+    padding: 10px; 
+    margin: 0 10px; 
   }
 
   ion-button {
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 1); /* Sombra */
-    border-radius: 18px; /* Esquinas redondeadas (opcional) */
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 1); 
+    border-radius: 18px; 
   }
+
+  ion-note {
+    color: rgb(5, 3, 70);/* Cambia el color del texto a rojo */
+    background-color: rgba(134, 198, 247, 0.2); /* Cambia el color de fondo a un azul suave */
+    
+}
+
+.note-right {
+  display: block; /* Asegura que el elemento se comporte como bloque */
+  margin-left: 5px; /* Espacio entre el texto principal y el elemento */
+  text-align: right; /* Alinea el texto hacia la derecha dentro del elemento */
+}

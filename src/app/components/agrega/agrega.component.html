@@ -1,11 +1,11 @@
 <div class="margen">
   <ion-item>
-    <ion-input [(ngModel)]="nombreAct" fill="solid" label="Nombre Actividad:"></ion-input>
+    <ion-input [(ngModel)]="nuevaActividad.nombreAct" fill="solid" label="Nombre Actividad:"></ion-input>
   </ion-item>
 </div>
 <div class="margen">
   <ion-item>
-    <ion-select [(ngModel)]="tipoAct" justify="space-between" label="Tipo de Actividad" placeholder="Tipos">
+    <ion-select [(ngModel)]="nuevaActividad.tipoAct" justify="space-between" label="Tipo de Actividad" placeholder="Tipos">
       <ion-select-option value="hogar">Hogar</ion-select-option>
       <ion-select-option value="trabajo">Trabajo</ion-select-option>
       <ion-select-option value="hobbie">Hobbie</ion-select-option>
@@ -14,27 +14,32 @@
 </div>
 <div class="margen">
   <ion-item>
-    <ion-input [(ngModel)]="detalleAct" fill="solid" label="Detalle:"></ion-input>
+    <ion-input [(ngModel)]="nuevaActividad.detalleAct" fill="solid" label="Detalle:"></ion-input>
   </ion-item>
 </div>
 
 <div class="margen">
   <ion-item>
     <ion-label>Fecha de Actividad</ion-label>
-    <ion-datetime-button datetime="datetime"></ion-datetime-button>
-
+    <ion-datetime-button datetime="date"></ion-datetime-button>
+  
     <ion-modal [keepContentsMounted]="true">
       <ng-template>
-        <ion-datetime id="datetime" [(ngModel)]="fechaAct" presentation="date-time"></ion-datetime>
+        <ion-datetime 
+          id="date" 
+           
+          [(ngModel)]="nuevaActividad.fechaAct"
+          presentation="date">
+        </ion-datetime>
       </ng-template>
     </ion-modal>
-
   </ion-item>
+  
 </div>
 
 <div class="margen">
   <ion-item>
-    <ion-checkbox [(ngModel)]="grupal" justify="space-between">Es una actividad grupal?</ion-checkbox>
+    <ion-checkbox [(ngModel)]="nuevaActividad.grupal" justify="space-between">Es una actividad grupal?</ion-checkbox>
   </ion-item>
 </div>
 
@@ -44,7 +49,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size="6" class="button-col ">
-        <ion-button class="boton-registrar" color="success" fill="solid" (click)="siguiente()" shape="round">Registrar
+        <ion-button class="boton-registrar" color="success" fill="solid" (click)="agregarActividad()" shape="round">Registrar
           Actividad
           <ion-icon name="save"></ion-icon>
         </ion-button>

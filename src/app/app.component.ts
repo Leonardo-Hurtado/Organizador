@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiRestService } from './services/api-rest.service';
+import { Usuario } from './models/usuario.model';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   public appPages = [
     { title: 'Sesión', url: 'index', icon: 'person' },
     { title: 'Cuenta', url: 'usuario', icon:'person' },
@@ -14,22 +16,25 @@ export class AppComponent {
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
-  username: string = '';
-  password: string = '';
   nombre: string = '';
   apellido: string = '';
   email: string = '';
-  direccion: string ='';
 
-  constructor() {}
+  constructor(private api: ApiRestService) {}
   
+
   ngOnInit() {
-    this.username = sessionStorage.getItem('username') || '';
-    this.password = sessionStorage.getItem('password') || '';
-    this.email = sessionStorage.getItem('email') || '';
-    this.nombre = sessionStorage.getItem('nombre') || '';
-    this.apellido = sessionStorage.getItem('apellido') || '';
-    this.direccion = sessionStorage.getItem('direccion') || '';
+    this.obtenerUsuario();
+  }
+
+  obtenerUsuario() {
+    const usuarioLogueado = JSON.parse(sessionStorage.getItem('usuario') || '{}');
+
+    if (usuarioLogueado) {
+      this.nombre = usuarioLogueado.nombre;
+      this.apellido = usuarioLogueado.apellido;
+      this.email = usuarioLogueado.email;
+    }
   }
 }
 

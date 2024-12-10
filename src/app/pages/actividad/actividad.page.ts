@@ -1,6 +1,8 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { addIcons } from 'ionicons';
 import { create, trash } from 'ionicons/icons';
+import { Actividad } from 'src/app/models/actividad.model';
+import { ApiRestService } from 'src/app/services/api-rest.service';
 
 @Component({
   selector: 'app-actividad',
@@ -9,20 +11,24 @@ import { create, trash } from 'ionicons/icons';
 })
 export class ActividadPage {
 
-  nombreAct: string = '';
-  tipoAct: string = '';
-  detalleAct: string = '';
-  fechaAct: string | null = null;
-  grupal: string = '';
+  actividades: Actividad[] = [];
 
-  constructor() { }
+  
+
+  constructor( private api: ApiRestService) { }
 
   ngOnInit() {
-    // Recuperar datos de sessionStorage
-    this.nombreAct = sessionStorage.getItem('nombreAct') || '';
-    this.tipoAct = sessionStorage.getItem('tipoAct') || '';
-    this.detalleAct = sessionStorage.getItem('detalleAct') || '';
-    this.fechaAct = sessionStorage.getItem('fechaAct') || ''; // Ya es un string
-    this.grupal = sessionStorage.getItem('grupal') || '';
+    this.obtenerActividades();
+  }
+
+  obtenerActividades() {
+    this.api.getActs().subscribe(
+      (data) => {
+        this.actividades = data;
+      },
+      (error) => {
+        console.error('error al obtener las actividades', error)
+      }
+    );
   }
 }

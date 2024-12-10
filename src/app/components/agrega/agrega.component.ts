@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Actividad } from 'src/app/models/actividad.model';
+import { ApiRestService } from 'src/app/services/api-rest.service';
 
 @Component({
   selector: 'app-agrega',
@@ -8,36 +10,43 @@ import { Router } from '@angular/router';
 })
 export class AgregarComponent {
 
-  nombreAct: string = '';
-  tipoAct: string = '';
-  detalleAct: string = '';
-  fechaAct: string | null = null;
-  grupal: string = '';
+ actividades: Actividad [] = [];
+ 
+ nuevaActividad: Actividad = {
+  nombreAct: '',
+  tipoAct: '',
+  detalleAct: '',
+  fechaAct: '',
+  grupal: false,
+  
+ }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private api: ApiRestService) { }
 
-  limpiarCampos() {
-    this.nombreAct = "";
-    this.tipoAct = "";
-    this.detalleAct = "";
-    this.fechaAct = null;
-    this.grupal = "";
-    
-    
-    sessionStorage.removeItem('nombreAct');
-    sessionStorage.removeItem('tipoAct');
-    sessionStorage.removeItem('detalleAct');
-    sessionStorage.removeItem('fechaAct');
-    sessionStorage.removeItem('grupal');
+  agregarActividad() {
+    this.api.addAct(this.nuevaActividad).subscribe(
+      (data) => {
+        this.actividades.push(data);
+        this.limpiarCampos();
+        this.continue();
+      },
+
+    )
+
   }
 
-  siguiente() {
-    sessionStorage.setItem('nombreAct', this.nombreAct);
-    sessionStorage.setItem('tipoAct', this.tipoAct);
-    sessionStorage.setItem('detalleAct', this.detalleAct);
-    sessionStorage.setItem('fechaAct', this.fechaAct ? this.fechaAct.toString() : '');
-    sessionStorage.setItem('grupal', this.grupal);
 
+  limpiarCampos() {
+    this.nuevaActividad = {
+      nombreAct: '',
+      tipoAct: '',
+      detalleAct: '',
+      fechaAct: '',
+      grupal: false,
+    };
+  }
+  
+  continue(){
     this.router.navigate(['/actividad']);
   }
 }

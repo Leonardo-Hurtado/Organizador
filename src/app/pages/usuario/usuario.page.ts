@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { addIcons } from 'ionicons';
 import { create } from 'ionicons/icons';
 
@@ -7,22 +7,23 @@ import { create } from 'ionicons/icons';
   templateUrl: './usuario.page.html',
   styleUrls: ['./usuario.page.scss'],
 })
-export class UsuarioPage{
+export class UsuarioPage implements OnInit {
 
-  username: string = history.state.username;
-  password: string = history.state.password;
-  nombre: string = history.state.nombre;
-  apellido: string = history.state.apellido;
-  email: string = history.state.email;
-  direccion: string = history.state.direccion;
+  username: string = '';
+  password: string = '';
+  nombre: string = '';
+  apellido: string = '';
+  email: string = '';
+  direccion: string = '';
 
   mostrarTexto: boolean = false; // Estado inicial: texto oculto
 
   constructor() { 
     addIcons({ create });
-
   }
+
   ngOnInit() {
+    // Recuperar los datos de sessionStorage
     this.username = sessionStorage.getItem('username') || '';
     this.password = sessionStorage.getItem('password') || '';
     this.email = sessionStorage.getItem('email') || '';
@@ -31,10 +32,7 @@ export class UsuarioPage{
     this.direccion = sessionStorage.getItem('direccion') || '';
   }
 
-
   toggleMostrarTexto() {
     this.mostrarTexto = !this.mostrarTexto;
   }
-
-
 }
