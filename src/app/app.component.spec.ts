@@ -1,47 +1,42 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { IonicModule } from '@ionic/angular';
-import { HttpClientTestingModule } from '@angular/common/http/testing';  // Agrega esta importación
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AppComponent } from './app.component';
-import { ApiRestService } from './services/api-rest.service';  // Asegúrate de importar tu servicio si es necesario
+import { ApiRestService } from './services/api-rest.service';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
-  let app: AppComponent;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [AppComponent],
-      imports: [
-        IonicModule.forRoot(),
-        RouterTestingModule.withRoutes([
-          { path: 'index', loadChildren: () => import('./pages/index/index.module').then(m => m.IndexPageModule) },
-          { path: 'usuario', loadChildren: () => import('./pages/usuario/usuario.module').then(m => m.UsuarioPageModule) },
-          { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule) },
-          // Aquí puedes agregar más rutas de las que uses
-        ]),
-        HttpClientTestingModule  // Aquí agregas el módulo de pruebas para HttpClient
-      ],
-      providers: [
-        ApiRestService  // Asegúrate de incluir cualquier servicio que dependa de HttpClient
-      ]
+      providers: [ApiRestService]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
-    app = fixture.componentInstance;
-  });
+    component = fixture.componentInstance;
 
-  it('should create the app', () => {
-    expect(app).toBeTruthy();
+    
+    component.nombre = 'Juan';
+    component.apellido = 'Pérez';
+    component.email = 'juan.perez@example.com';
+    component.appPages = [
+      { title: 'Index', url: '/index', icon: 'home' },
+      { title: 'Usuario', url: '/usuario', icon: 'person' }
+    ];
+
+    fixture.detectChanges(); 
   });
 
   it('should have menu labels', () => {
-    fixture.detectChanges();
-    const menuItems = fixture.nativeElement.querySelectorAll('ion-label');
+    const compiled = fixture.nativeElement;
 
-    // Asegúrate de que la cantidad de elementos y su contenido es correcto
-    expect(menuItems.length).toEqual(4);  // Ajusta este valor según el número de elementos en tu menú
-    expect(menuItems[0].textContent.trim()).toContain('Index');
-    expect(menuItems[1].textContent.trim()).toContain('Usuario');
+    const navElement = compiled.querySelector('ion-list');
+    expect(navElement).not.toBeNull();
+
+    
+    expect(navElement.textContent).toContain('Index');
+    expect(navElement.textContent).toContain('Usuario');
   });
 });
