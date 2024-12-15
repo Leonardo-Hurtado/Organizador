@@ -3,6 +3,7 @@
     <ion-input [(ngModel)]="nuevaActividad.nombreAct" fill="solid" label="Nombre Actividad:"></ion-input>
   </ion-item>
 </div>
+
 <div class="margen">
   <ion-item>
     <ion-select [(ngModel)]="nuevaActividad.tipoAct" justify="space-between" label="Tipo de Actividad" placeholder="Tipos">
@@ -12,6 +13,7 @@
     </ion-select>
   </ion-item>
 </div>
+
 <div class="margen">
   <ion-item>
     <ion-input [(ngModel)]="nuevaActividad.detalleAct" fill="solid" label="Detalle:"></ion-input>
@@ -27,14 +29,12 @@
       <ng-template>
         <ion-datetime 
           id="date" 
-           
           [(ngModel)]="nuevaActividad.fechaAct"
           presentation="date">
         </ion-datetime>
       </ng-template>
     </ion-modal>
   </ion-item>
-  
 </div>
 
 <div class="margen">
@@ -43,20 +43,43 @@
   </ion-item>
 </div>
 
-<br>
+<ion-content>
+  <div class="margen">
+    <!-- Contenedor para los botones de localización y foto -->
+    <ion-grid>
+      <ion-row>
+        <!-- Botón de localización -->
+        <ion-col size="6" class="button-col">
+          <ion-button class="boton-registrar" color="primary" fill="solid" (click)="getCurrentLocation()" shape="round" expand="full">
+            Obtener Localización
+            <ion-icon slot="end" name="location"></ion-icon>
+          </ion-button>
+        </ion-col>
 
-<div>
+        <!-- Botón para tomar una foto -->
+        <ion-col size="6" class="button-col">
+          <ion-button class="boton-limpiar" color="primary" fill="solid" (click)="takePhoto()" shape="round" expand="full">
+            Tomar Foto
+            <ion-icon slot="end" name="camera"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+<!-- Botones de registrar y borrar -->
+<div class="margen">
   <ion-grid>
     <ion-row>
-      <ion-col size="6" class="button-col ">
-        <ion-button class="boton-registrar" color="success" fill="solid" (click)="agregarActividad()" shape="round">Registrar
-          Actividad
+      <ion-col size="6" class="button-col">
+        <ion-button class="boton-registrar" color="success" fill="solid" (click)="agregarActividad()" shape="round">
+          Registrar Actividad
           <ion-icon name="save"></ion-icon>
         </ion-button>
       </ion-col>
       <ion-col size="6" class="button-col">
-        <ion-button class="boton-limpiar" color="danger" fill="solid" (click)="limpiarCampos()" shape="round">Borrar
-          Informacion
+        <ion-button class="boton-limpiar" color="danger" fill="solid" (click)="limpiarCampos()" shape="round">
+          Borrar Información
           <ion-icon name="trash-bin"></ion-icon>
         </ion-button>
       </ion-col>

@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Organizador",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

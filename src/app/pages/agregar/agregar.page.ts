@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AgregarComponent } from 'src/app/components/agrega/agrega.component';
 
 
 @Component({
